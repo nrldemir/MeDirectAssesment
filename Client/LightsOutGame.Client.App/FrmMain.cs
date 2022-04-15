@@ -1,6 +1,7 @@
 ﻿using LightsOutGame.Client.App.Implementation;
 using LightsOutGame.Client.App.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace LightsOutGame.Client.App
@@ -16,19 +17,35 @@ namespace LightsOutGame.Client.App
 
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            _gameServiceApi = new GameServiceApi();
-            var result = await _gameServiceApi.GetGameSettings();
-            if (result != null)
+            try
             {
-                foreach (var item in result)
+                btnStart.Enabled = false;
+                _gameServiceApi = new GameServiceApi();
+                var result = await _gameServiceApi.GetGameSettings();
+                if (result != null)
                 {
-                    cmbBoardSize.Items.Add(item.BoardSizeX + "x" + item.BoardSizeY);
+                    foreach (var item in result)
+                    {
+                        cmbBoardSize.Items.Add(item.BoardSizeX + "x" + item.BoardSizeY);
+                    }
+                    btnStart.Enabled = true;
+                    lblStatus.Text = "Connected";
+                    lblStatus.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblStatus.Text = "Connection refused!";
+                    lblStatus.ForeColor = Color.Red;
+                    MessageBox.Show("Connection refused!");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Connection refused!");
+                lblStatus.Text = "Connection refused!";
+                lblStatus.ForeColor = Color.Red;
+                MessageBox.Show(ex.ToString());
             }
+
         }
 
         private async void btnStart_Click(object sender, EventArgs e)

@@ -16,6 +16,13 @@ namespace LightsOutGame.Data.Infrastructure.Repositories
         {
 
         }
+
+        public async Task<IEnumerable<Player>> GetPlayerResults()
+        {
+            var result = await GetAllAsync();
+            return result;
+        }
+
         public async Task<Player> NewPlayer(Player player)
         {
             var result = await AddAsync(player);

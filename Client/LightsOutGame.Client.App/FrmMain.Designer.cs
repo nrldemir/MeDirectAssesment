@@ -36,16 +36,17 @@
             this.cmbBoardSize = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(101, 155);
+            this.btnStart.Location = new System.Drawing.Point(101, 153);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(154, 29);
             this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start Game";
+            this.btnStart.Text = "Play Game";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -83,6 +84,8 @@
             // 
             // cmbBoardSize
             // 
+            this.cmbBoardSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBoardSize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbBoardSize.FormattingEnabled = true;
             this.cmbBoardSize.Location = new System.Drawing.Point(101, 108);
             this.cmbBoardSize.Name = "cmbBoardSize";
@@ -101,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblStatus);
             this.groupBox1.Controls.Add(this.btnStart);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtName);
@@ -110,18 +114,26 @@
             this.groupBox1.Controls.Add(this.txtSurname);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(304, 201);
+            this.groupBox1.Size = new System.Drawing.Size(302, 211);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.Green;
+            this.lblStatus.Location = new System.Drawing.Point(128, 185);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(93, 20);
+            this.lblStatus.TabIndex = 7;
+            this.lblStatus.Text = "Connecting...";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 229);
+            this.ClientSize = new System.Drawing.Size(322, 230);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(353, 276);
-            this.MinimumSize = new System.Drawing.Size(353, 276);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lights Out Game";
@@ -142,5 +154,6 @@
         private System.Windows.Forms.ComboBox cmbBoardSize;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

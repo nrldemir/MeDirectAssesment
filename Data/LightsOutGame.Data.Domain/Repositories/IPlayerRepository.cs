@@ -10,6 +10,7 @@ namespace LightsOutGame.Data.Domain.Repositories
 {
     public interface IPlayerRepository : IRepository<Player>
     {
+        Task<IEnumerable<Player>> GetPlayerResults();
         Task<Player> NewPlayer(Player player);
         Task<bool> UpdatePlayer(Player player);
     }

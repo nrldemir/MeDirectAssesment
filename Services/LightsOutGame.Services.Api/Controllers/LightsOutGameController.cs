@@ -27,6 +27,19 @@ namespace LightsOutGame.Services.Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<PlayerResponse>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<ActionResult<IEnumerable<PlayerResponse>>> GetPlayerResults()
+        {
+            var query = new GetPlayerResultsQuery();
+            var settings = await _mediator.Send(query);
+            if (settings.Count().Equals(0))
+                return NotFound();
+
+            return Ok(settings);
+        }
+
+        [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<SettingResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult<IEnumerable<SettingResponse>>> GetGameSettings()

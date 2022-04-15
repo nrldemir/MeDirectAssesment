@@ -17,7 +17,6 @@ namespace LightsOutGame.Client.App
         private Button[,] _buttons;
         private bool[,] _buttonsMatrix;
         private GameServiceApi _gameServiceApi;
-        public MessageBoxButtons OKAY { get; private set; }
         public FrmGame(string name, string surname, int xSize, int ySize, GameServiceApi gameServiceApi)
         {
             _name = name;
@@ -47,7 +46,7 @@ namespace LightsOutGame.Client.App
             if (result != null)
             {
                 _playerId = result.Id;
-                this.Text = _name + " " + _surname + " Board Size : " + _boardsize;
+                this.Text = "Name : "+_name + " Surname : " + _surname + " Board Size : " + _boardsize;
             }
             else
                 this.Text = "New Player NOT Saved!";
@@ -75,14 +74,14 @@ namespace LightsOutGame.Client.App
             {
                 int x = rnd.Next(0, _buttons.GetLength(1));
                 int y = rnd.Next(0, _buttons.GetLength(0));
-                InvertButton(_buttons[x, y], x, y);
+                ToogleButton(_buttons[x, y], x, y);
             }
 
             if (CheckStatus())
             {
                 int x = rnd.Next(0, _buttons.GetLength(1));
                 int y = rnd.Next(0, _buttons.GetLength(0));
-                InvertButton(_buttons[x, y], x, y);
+                ToogleButton(_buttons[x, y], x, y);
             }
         }
 
@@ -91,37 +90,33 @@ namespace LightsOutGame.Client.App
             Button btn = sender as Button;
             int i = (int)Char.GetNumericValue(btn.Name[0]);
             int j = (int)Char.GetNumericValue(btn.Name[1]);
-            InvertHandler(_buttons[i, j], i, j);
+            ChangeButtonState(_buttons[i, j], i, j);
             CheckEnd();
         }
 
-        public void InvertHandler(object sender, int i, int j)
+        public void ChangeButtonState(object sender, int i, int j)
         {
-            InvertButton(_buttons[i, j], i, j);
+            ToogleButton(_buttons[i, j], i, j);
 
             if (i > 0)
-                InvertButton(_buttons[i - 1, j], i - 1, j); //Above
+                ToogleButton(_buttons[i - 1, j], i - 1, j); //change Above
             if (i < (_buttons.GetLength(1) - 1))
-                InvertButton(_buttons[i + 1, j], i + 1, j); //Below
+                ToogleButton(_buttons[i + 1, j], i + 1, j); //change Below
             if (j > 0)
-                InvertButton(_buttons[i, j - 1], i, j - 1); //Left
+                ToogleButton(_buttons[i, j - 1], i, j - 1); //change Left
             if (j < (_buttons.GetLength(1) - 1))
-                InvertButton(_buttons[i, j + 1], i, j + 1); //Right
+                ToogleButton(_buttons[i, j + 1], i, j + 1); //change Right
 
         }
 
-        public void InvertButton(object sender, int i, int j)
+        public void ToogleButton(object sender, int i, int j)
         {
             Button? btn = sender as Button;
             _buttonsMatrix[i, j] = !_buttonsMatrix[i, j];
             if (_buttonsMatrix[i, j])
-            {
                 btn.BackColor = Color.LimeGreen;
-            }
             else
-            {
                 btn.BackColor = Color.DarkGreen;
-            }
 
         }
 
@@ -150,7 +145,7 @@ namespace LightsOutGame.Client.App
                     IsWinned = true
                 });
 
-                MessageBox.Show("Game Completed!", "Congratulations!", OKAY);
+                MessageBox.Show("Game Completed With Successfully!", "Congratulations!");
                 this.Close();
             }
         }
