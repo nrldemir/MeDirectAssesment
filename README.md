@@ -14,7 +14,7 @@ Step 3 : Run the "LightsOutGame.Client.App" in new instance. (Right click over t
        information :
         * Client App gets game settings over Web Api and filled to the combobox.
         * When press "Play Game" the button, new player saved to the database. (over the Web Api)
-        * If the player completed the game successfully, "IsWinned" field changes from false to true.
+        * If the player completed the game successfully, "IsWinned" field changes from false to true. (over the Web Api)
 
 Step 4 : Enter some information to the opening form (such as name,surname and select board size) and click to the "Play Game" button.
 
