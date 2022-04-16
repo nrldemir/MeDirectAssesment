@@ -12,9 +12,6 @@ namespace LightsOutGame.Data.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddDbContext<OrderContext>(opt => opt.UseInMemoryDatabase(databaseName: "InMemoryDb"),
-            //                                    ServiceLifetime.Singleton,
-            //                                    ServiceLifetime.Singleton);
 
             services.AddDbContext<LightsOutGameDbContext>(options =>
                     options.UseSqlServer(
