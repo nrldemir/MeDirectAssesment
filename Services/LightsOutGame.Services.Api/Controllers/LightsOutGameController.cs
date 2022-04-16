@@ -1,7 +1,6 @@
 ﻿using LightsOutGame.Services.Business.Commands.PlayerCreate;
 using LightsOutGame.Services.Business.Commands.PlayerUpdate;
 using LightsOutGame.Services.Business.Queries;
-using LightsOutGame.Services.Business.Responses;
 using LightsOutGame.Sheared.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
