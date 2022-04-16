@@ -11,14 +11,14 @@ namespace LightsOutGame.Data.Infrastructure
         }
         public DbSet<GameSetting> GameSetting { get; set; }
         public DbSet<Player> Player { get; set; }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
-        //}
+        }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
 
-        //}
+        }
     }
 }
