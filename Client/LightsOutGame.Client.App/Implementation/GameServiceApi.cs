@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LightsOutGame.Client.App.Implementation
 {
-    public class GameServiceApi  //: IGameServiceApi
+    public class GameServiceApi
     {
         public GameServiceApi()
         {
