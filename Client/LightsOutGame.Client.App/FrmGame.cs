@@ -62,7 +62,7 @@ namespace LightsOutGame.Client.App
                     _buttons[i, j].Size = new Size(40, 40);
                     _buttons[i, j].Name = i.ToString() + j.ToString();
                     _buttons[i, j].Click += LightButtonOnClickEvent;
-                    _buttons[i, j].Location = new Point(30 + (j * 60), 20 + (i * 60));
+                    _buttons[i, j].Location = new Point(24 + (j * 55), 14 + (i * 55));
                     _buttons[i, j].BackColor = Color.DarkGreen;
                     _buttonsMatrix[i, j] = false;
                     this.Controls.Add(_buttons[i, j]);
