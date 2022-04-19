@@ -70,7 +70,7 @@ namespace LightsOutGame.Client.App
             }
 
             Random rnd = new Random();
-            for (int i = 0; i < rnd.Next(1, 10); i++)
+            for (int i = 0; i < rnd.Next(1, 8); i++)
             {
                 int x = rnd.Next(0, _buttons.GetLength(1));
                 int y = rnd.Next(0, _buttons.GetLength(0));
