@@ -9,6 +9,12 @@ Step 2 : Run the "LightsOutGame.Services.Api" project. (you will see the "https:
        information :
         * The Database will be created auto (if db not available) and seeding the game settings to the Lights Out Game Database. (db migration)
         
+        API Methods :
+        * api/LightsOutGame/GetPlayerResults
+        * api/LightsOutGame/GetGameSettings
+        * api/LightsOutGame/NewPlayer
+        * api/LightsOutGame/GameOver
+        
 Step 3 : Run the "LightsOutGame.Client.App" in new instance. (Right click over the project -> Debug-> Start New Instance)
 Enter your name,surname and select board size from the combo list and then press to the "Play Game" button
 
