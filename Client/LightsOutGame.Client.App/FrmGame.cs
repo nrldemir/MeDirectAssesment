@@ -54,9 +54,9 @@ namespace LightsOutGame.Client.App
 
         public void Init()
         {
-            for (int i = 0; i < _buttons.GetLength(1); i++)
+            for (int i = 0; i < _buttons.GetLength(0); i++)
             {
-                for (int j = 0; j < _buttons.GetLength(0); j++)
+                for (int j = 0; j < _buttons.GetLength(1); j++)
                 {
                     _buttons[i, j] = new Button();
                     _buttons[i, j].Size = new Size(40, 40);
@@ -72,15 +72,15 @@ namespace LightsOutGame.Client.App
             Random rnd = new Random();
             for (int i = 0; i < rnd.Next(1, 8); i++)
             {
-                int x = rnd.Next(0, _buttons.GetLength(1));
-                int y = rnd.Next(0, _buttons.GetLength(0));
+                int x = rnd.Next(0, _buttons.GetLength(0));
+                int y = rnd.Next(0, _buttons.GetLength(1));
                 ToogleButton(_buttons[x, y], x, y);
             }
 
             if (CheckStatus())
             {
-                int x = rnd.Next(0, _buttons.GetLength(1));
-                int y = rnd.Next(0, _buttons.GetLength(0));
+                int x = rnd.Next(0, _buttons.GetLength(0));
+                int y = rnd.Next(0, _buttons.GetLength(1));
                 ToogleButton(_buttons[x, y], x, y);
             }
         }
@@ -100,7 +100,7 @@ namespace LightsOutGame.Client.App
 
             if (i > 0)
                 ToogleButton(_buttons[i - 1, j], i - 1, j); //change Above
-            if (i < (_buttons.GetLength(1) - 1))
+            if (i < (_buttons.GetLength(0) - 1))
                 ToogleButton(_buttons[i + 1, j], i + 1, j); //change Below
             if (j > 0)
                 ToogleButton(_buttons[i, j - 1], i, j - 1); //change Left
@@ -122,9 +122,9 @@ namespace LightsOutGame.Client.App
 
         public bool CheckStatus()
         {
-            for (int i = 0; i < _buttonsMatrix.GetLength(1); i++)
+            for (int i = 0; i < _buttonsMatrix.GetLength(0); i++)
             {
-                for (int j = 0; j < _buttonsMatrix.GetLength(0); j++)
+                for (int j = 0; j < _buttonsMatrix.GetLength(1); j++)
                 {
                     if (_buttonsMatrix[i, j])
                     {
