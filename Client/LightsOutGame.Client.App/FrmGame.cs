@@ -76,13 +76,6 @@ namespace LightsOutGame.Client.App
                 int y = rnd.Next(0, _buttons.GetLength(1));
                 ToogleButton(_buttons[x, y], x, y);
             }
-
-            if (CheckStatus())
-            {
-                int x = rnd.Next(0, _buttons.GetLength(0));
-                int y = rnd.Next(0, _buttons.GetLength(1));
-                ToogleButton(_buttons[x, y], x, y);
-            }
         }
 
         public void LightButtonOnClickEvent(object sender, EventArgs e)
